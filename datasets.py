@@ -47,14 +47,19 @@ class bird_dataset(Dataset):
         
         img_name = os.path.join(self.root,
                                 self.data.iloc[item, 0])
+        
 
-        image = io.imread(img_name)
+#         image = io.imread(img_name)
+#         image = Image.convert('RGB')
+
+        image = Image.open(img_name)
+        image = image.convert('RGB')
 
         classification = self.data.iloc[item, 1:].values[0]
         # classification = np.array([classification])
         #reshape rgb image to 1 dimensional?
         # landmarks = landmarks.astype('float').reshape(-1, 2)
-        data_transform = transforms.Compose([transforms.ToTensor(), transforms.RandomSizedCrop(224), transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
+        data_transform = transforms.Compose([transforms.RandomResizedCrop(224),  transforms.ToTensor(), transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])])
         image = data_transform(image)
 
         # sample = {'image': image, 'classification': classification}
