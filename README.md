@@ -1,3 +1,4 @@
-# CSE151B_PA3
-UCSD CSE151B PA3 Fall 2020
-Repository for CSE 151B PA3 Fall 2020
+#### Deep Convolutional Network for Bird Classification ####
+- Caltech-UCSD Birds Dataset
+- Multi-layer Convolutional Neural Network (Deep Learning)
+- Deep Learning Image Recognition
